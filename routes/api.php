@@ -23,7 +23,7 @@ Route::get('/verified-only', function(Request $request){
     dd('your are verified', $request->user()->name);
 })->middleware('auth:api','verified');
 
-Route::middleware('auth:sanctum')->get("/user", "API\AuthController@index");
+Route::middleware('auth:sanctum')->get("/user", "API\AuthController@index")->middleware('verificar.rol');
 Route::middleware('auth:sanctum')->delete("/LogOut", "API\AuthController@LogOut");
 
 
